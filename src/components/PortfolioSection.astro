@@ -1,0 +1,62 @@
+---
+const projects = [
+  {
+    title: "Delhi Travel Campaign",
+    category: "Travel Graphics",
+    image: "https://images.unsplash.com/photo-1587474260584-136574528ed5",
+    description: "Social media campaign showcasing Delhi's cultural heritage"
+  },
+  {
+    title: "Gujarat Tourism",
+    category: "Social Media",
+    image: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f",
+    description: "Visual storytelling of Gujarat's diverse attractions"
+  },
+  {
+    title: "Venice Experience",
+    category: "Web Design",
+    image: "https://images.unsplash.com/photo-1514890547357-a9ee288728e0",
+    description: "Landing page design for Venice travel packages"
+  },
+  {
+    title: "Nainital Escapes",
+    category: "Travel Graphics",
+    image: "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23",
+    description: "Promotional materials for Nainital tourism"
+  }
+];
+
+const categories = ["All", "Travel Graphics", "Social Media", "Web Design"];
+---
+<section id="portfolio" class="py-20 bg-gray-800">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-12 text-center fade-up">Portfolio</h2>
+    
+    <div class="flex justify-center gap-4 mb-12 flex-wrap fade-up">
+      {categories.map(category => (
+        <button class="px-6 py-2 rounded-full bg-gray-700 hover:bg-purple-600 transition">
+          {category}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map(project => (
+        <div class="group relative overflow-hidden rounded-lg fade-up">
+          <img 
+            src={project.image}
+            alt={project.title}
+            class="w-full h-64 object-cover transition group-hover:scale-110"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <span class="text-purple-400 text-sm">{project.category}</span>
+              <h3 class="text-xl font-bold mb-2">{project.title}</h3>
+              <p class="text-gray-300 text-sm">{project.description}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
